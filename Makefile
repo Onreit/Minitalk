@@ -6,7 +6,7 @@
 #    By: tjalo <tjalo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/06 16:31:03 by tjalo             #+#    #+#              #
-#    Updated: 2022/04/07 16:36:57 by tjalo            ###   ########.fr        #
+#    Updated: 2022/04/25 20:09:58 by tjalo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,9 @@ CFLAGS 	= -Wall -Wextra -Werror -I ./include/
 EXEC_C 	= client
 EXEC_S 	= server
 
-SRC_C =	./Client/srcs/client.c \
-		./Utils/utils.c
+SRC_C =	./Client/client.c \
 
-SRC_S =	./Server/srcs/server.c \
-		./Utils/utils.c
+SRC_S =	./Server/server.c \
 
 OBJ_C =	$(SRC_C:.c=.o)
 OBJ_S =	$(SRC_S:.c=.o)
@@ -41,9 +39,8 @@ $(EXEC_S) : $(OBJ_S)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 	
 clean :
-	@rm -rf ./Client/srcs/*.o
-	@rm -rf ./Server/srcs/*.o
-	@rm -rf ./Utils/*.o
+	@rm -rf ./Client/*.o
+	@rm -rf ./Server/*.o
 	@printf "\e[38;5;206m--------------------------------------\n"
 	@printf "\e[38;5;206mAll.o files deleted              🗑  ❌\e[0m\n"
 	@printf "\e[38;5;206m--------------------------------------\n"
